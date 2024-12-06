@@ -1,0 +1,67 @@
+#root {
+  --base-color: rgb(7, 7, 7);
+  --text-color: white;
+  --primary-color: #98b1b4;
+  --secondary-color: rgb(233, 231, 231);
+}
+.background-to {
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(152, 177, 180, 1) 100%
+  );
+  color: var(--base-color);
+}
+.background-to-alt {
+  background-color: var(--secondary-color);
+}
+.darkmode .background-to {
+  background: radial-gradient(circle, rgb(8, 8, 8) 0%, rgb(18, 18, 18) 100%);
+  color: var(--secondary-color);
+}
+.darkmode .background-to-alt {
+  --secondary-color: rgb(52, 51, 51);
+  color: white;
+}
+
+#theme-switch {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+#theme-switch svg {
+  fill: rgb(11, 11, 11);
+}
+#theme-switch svg:last-child {
+  display: none;
+}
+.darkmode #theme-switch svg:first-child {
+  display: none;
+}
+.darkmode #theme-switch svg:last-child {
+  display: block;
+}
+.scrolled {
+  opacity: 1; /* Ensure it becomes visible */
+  transform: translateY(0); /* Reset the transform */
+  animation: scroll-in 0.5s forwards; /* Use 'forwards' to maintain the end state */
+}
+
+@keyframes scroll-in {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
